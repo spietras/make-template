@@ -19,7 +19,7 @@ OBJDIR   = obj
 BINDIR   = bin
 
 # resursive wildcard function, thanks to: https://stackoverflow.com/a/12959764
-rwildcard=$(wildcard $1/$2) $(foreach d,$(wildcard $1/*),$(call rwildcard,$d/,$2))
+rwildcard=$(wildcard $1/$2) $(foreach d,$(wildcard $1/*),$(call rwildcard,$d,$2))
 
 CSOURCES  := $(call rwildcard,$(SRCDIR),*.c)
 COBJECTS  := $(CSOURCES:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
